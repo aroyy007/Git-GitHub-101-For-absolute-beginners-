@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & GitHub 101: For absolute beginners!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            opacity: 0;
+            animation: slideIn 1s ease forwards 1s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .feature {
+            margin: 1.5rem 0;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateX(10px);
+        }
+
+        .feature-icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 2rem;
+            background-color: white;
+            color: #e73c7e;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Git & GitHub 101</h1>
+        <h2>For absolute beginners!</h2>
+        
+        <div class="content">
+            <div class="feature">
+                <span class="feature-icon">🔍</span>
+                <span>Learn the fundamentals of version control with Git</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🌿</span>
+                <span>Master branching, merging, and conflict resolution</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🤝</span>
+                <span>Collaborate effectively with GitHub</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🚀</span>
+                <span>Create your first repository and make contributions</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📝</span>
+                <span>Write effective README files and documentation</span>
+            </div>
+            <div class="feature floating">
+                <span class="feature-icon">✨</span>
+                <span>Perfect for complete beginners with no prior experience!</span>
+            </div>
+            
+            <button id="startButton" class="btn">Get Started</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            alert('Welcome to Git & GitHub 101! Let\'s start learning together.');
+            
+            // Create a confetti effect
+            for (let i = 0; i < 50; i++) {
+                createConfetti();
+            }
+        });
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.width = Math.random() * 10 + 5 + 'px';
+            confetti.style.height = Math.random() * 10 + 5 + 'px';
+            confetti.style.backgroundColor = randomColor();
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = -20 + 'px';
+            confetti.style.borderRadius = '50%';
+            confetti.style.zIndex = '1000';
+            
+            document.body.appendChild(confetti);
+            
+            const animationDuration = Math.random() * 3 + 2;
+            const xMovement = (Math.random() - 0.5) * 200;
+            
+            confetti.style.animation = `fall ${animationDuration}s linear forwards`;
+            
+            const keyframes = `
+                @keyframes fall {
+                    0% {
+                        transform: translateY(0) rotate(0deg) translateX(0);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: translateY(${window.innerHeight}px) rotate(360deg) translateX(${xMovement}px);
+                        opacity: 0;
+                    }
+                }
+            `;
+            
+            const styleSheet = document.createElement('style');
+            styleSheet.textContent = keyframes;
+            document.head.appendChild(styleSheet);
+            
+            setTimeout(() => {
+                confetti.remove();
+                styleSheet.remove();
+            }, animationDuration * 1000);
+        }
+
+        function randomColor() {
+            const colors = ['#ee7752', '#e73c7e', '#23a6d5', '#23d5ab', '#ffffff'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>
