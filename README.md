@@ -1,49 +1,180 @@
-# Git & GitHub 101: For absolute beginners!
 
-A simple web-based introduction to Git and GitHub designed specifically for those with no prior experience.
+# AcademiaConnect App – Git Collaboration Workflow
 
-![Git & GitHub 101 Banner](image.png)
+Welcome to the **AcademiaConnect** repository. This document outlines the **branching strategy**, **workflow**, and **commands** each developer (Arijit, Abir, and Raheta) should follow to collaborate efficiently.
 
-## Overview
+---
 
-This project provides beginners with an interactive introduction to version control using Git and collaboration through GitHub. The colorful, animated landing page welcomes newcomers and breaks down complex concepts into easy-to-understand sections.
+## 🚀 Overview
 
-## Features
+- `main`: Production-ready stable branch.
+- `arijit`: Development branch for Arijit.
+- `abir`: Development branch for Abir.
+- `raheta`: Development branch for Raheta.
 
-- Fundamentals of version control with Git
-- Branching, merging, and conflict resolution techniques
-- GitHub collaboration basics
-- Step-by-step guide to creating your first repository
-- Tips for writing effective README files and documentation
+Each team member develops features or fixes in **their own branch** and submits **Pull Requests (PRs)** to merge into `main` after review.
 
-## Getting Started
+---
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/git-github-101.git
-   ```
+## 🛠️ Initial Setup (Once per Member)
 
-2. Open `index.html` in your browser to view the landing page.
+### ✅ Step 1: Clone the Repository
+```bash
+git clone https://github.com/aroyy007/AcademiaConnectApp.git
+cd AcademiaConnectApp
+```
+✅ Step 2: Checkout Your Branch
 
-3. Click the "Get Started" button to begin the tutorial.
+For Arijit:
+```bash
+git checkout -b arijit origin/arijit
+```
+For Abir:
+```bash
+git checkout -b abir origin/abir
+```
+For Raheta:
+```bash
+git checkout -b raheta origin/raheta
+```
 
-## Technologies Used
+---
 
-- HTML5
-- CSS3 (with animations)
-- JavaScript (for interactive elements)
+🔁 Daily Workflow
 
-## Contributing
+✅ 1. Pull Latest main and Sync Your Branch
 
-Contributions are welcome! If you'd like to improve this tutorial:
+Arijit:
+```bash
+git checkout main
+git pull origin main
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-improvement`)
-3. Commit your changes (`git commit -m 'Add some amazing improvement'`)
-4. Push to the branch (`git push origin feature/amazing-improvement`)
-5. Open a Pull Request
+git checkout arijit
+git merge main
+```
+Abir:
+```bash
+git checkout main
+git pull origin main
 
-## Acknowledgments
+git checkout abir
+git merge main
+```
+Raheta:
+```bash
+git checkout main
+git pull origin main
 
-- All the beginners who inspired this project
-- The Git and GitHub communities for their amazing tools
+git checkout raheta
+git merge main
+```
+🧠 Tip: You can use git rebase main instead of merge for cleaner history.
+
+
+---
+
+✅ 2. Make Changes and Push
+
+Arijit:
+```bash
+git add .
+git commit -m "Arijit: Implemented login UI"
+git push origin arijit
+```
+Abir:
+```bash
+git add .
+git commit -m "Abir: Added course list screen"
+git push origin abir
+```
+Raheta:
+```bash
+git add .
+git commit -m "Raheta: Fixed schedule bug"
+git push origin raheta
+```
+
+---
+
+✅ 3. Create a Pull Request to main
+
+Go to the GitHub repo.
+
+Click "Compare & pull request".
+
+Select base: main, compare: your branch (e.g., abir).
+
+Add a meaningful title and description.
+
+Assign reviewers (e.g., team lead).
+
+After approval and conflict resolution, merge to main.
+
+
+
+---
+
+🔄 Staying Updated
+
+Run this daily to avoid conflicts:
+```bash
+git checkout main
+git pull origin main
+
+git checkout your-branch
+git merge main   # OR git rebase main
+```
+
+---
+
+🔐 Protecting the main Branch (Maintainer)
+
+Enable the following in GitHub:
+
+Go to Settings > Branches > Branch protection rules.
+
+Add rule for main:
+
+✅ Require pull request before merging.
+
+✅ Require review from at least one team member.
+
+✅ Prevent force pushes and deletions.
+
+
+
+
+---
+
+📁 .gitignore (Example)
+
+Make sure your .gitignore includes:
+```bash
+node_modules/
+.env
+.DS_Store
+*.log
+```
+
+---
+
+🙋 Questions / Help
+
+If you’re stuck, ask in the group chat or open a GitHub issue.
+
+
+---
+
+✅ Final Notes
+
+Don’t push directly to main.
+
+Pull frequently to reduce merge conflicts.
+
+Write clean, meaningful commit messages.
+
+Use branches responsibly.
+
+Review PRs with care.
+
+
